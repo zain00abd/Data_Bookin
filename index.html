@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./JS Bootstrap File/css/bootstrap.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="row justify-content-between container" id="page_card">
+
+      <div class="card p-0 col-sm-12 col-lg-5 m-3" style="border: none;">
+        <div class="card-header text-center " id="card_top">
+          Featured
+        </div>
+        <div class="card-body" style="direction: rtl;">
+
+          <h5>الاسم</h5>
+          <h5>البسبورات</h5>
+          <h5>الاسم</h5>
+          <h5>الاسم</h5>
+          <h5>الاسم</h5>
+          <div class="p-2 rounded-3 border border-success-subtle border-start-0 rounded-end" style="background: linear-gradient(to left,#5d00a8,#51388b91);">
+
+            <h5 class=""> الرحلة الاولى => </h5>
+
+            <div class="text-center">
+
+              <h6> من: مصر </h6>
+              <h6> الى: سوريا </h6>
+              <h6> وقت المغادرة: 22/12/2023 </h6>
+              <h6> وقت العودة: 25/12/2023 </h6>
+            </div>
+          </div>
+
+        </div>
+        <div class="card-footer text-center " id="card_end">
+          <div class="row justify-content-evenly ">
+
+            <button type="button" class="btn btn-success col-7">WhatsApp</button>
+            <h5 class="col-5 g-1" id="data_inp">
+              2 days ago
+            </h5>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+  <script src="./JS Bootstrap File/popper/popper.js"></script>
+  <script src="./JS Bootstrap File/js/bootstrap.js"></script>
+
+  <script>
+
+
+    let datainp = document.getElementById("data_inp")
+
+    let timeA;
+    function timeAgo(timestamp) {
+      const seconds = Math.floor((new Date() - timestamp) / 1000);
+      let interval = Math.floor(seconds / 31536000);
+
+      if (interval >= 1) {
+        return interval + " year" + (interval === 1 ? "" : "s") + " ago";
+      }
+      interval = Math.floor(seconds / 2592000);
+      if (interval >= 1) {
+        return interval + " month" + (interval === 1 ? "" : "s") + " ago";
+      }
+      interval = Math.floor(seconds / 86400);
+      if (interval >= 1) {
+        return interval + " day" + (interval === 1 ? "" : "s") + " ago";
+      }
+      interval = Math.floor(seconds / 3600);
+      if (interval >= 1) {
+        return interval + " hour" + (interval === 1 ? "" : "s") + " ago";
+      }
+      interval = Math.floor(seconds / 60);
+      if (interval >= 1) {
+        return interval + " minute" + (interval === 1 ? "" : "s") + " ago";
+      }
+      return Math.floor(seconds) + " second" + (seconds === 1 ? "" : "s") + " ago";
+    }
+
+    // اختبار الدالة
+    setInterval(() => {
+
+
+      const timestamp = Date.parse("2023-12-13T05:42:00Z");
+      timeA = timeAgo(timestamp)
+      datainp.innerHTML = timeA
+    }, 1000)
+  </script>
+
+  <script src="script.js" type="module"></script>
+</body>
+
+</html>
